@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login and Registration Form in HTML</title>
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+    <script type="text/javascript" src="validation.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="title-text">
+            <div class="title login">
+                Login Form
+            </div>
+            <div class="title Register" style="padding-left: 27px;">
+                Registration Form
+            </div>
+        </div>
+        <div class="form-container">
+            <div class="slide-controls">
+                <input type="radio" name="slide" id="login" checked>
+                <input type="radio" name="slide" id="register">
+                <label for="login" class="slide login">Login</label>
+                <label for="Register" class="slide signup">Register </label>
+                <div class="slider-tab"></div>
+            </div>
+            <div class="form-inner">
+                <form action="#" class="login" action="/dashboard.html
+                ">
+                    <div class="field">
+                        <input type="text" id="username" placeholder="Email / Username" required>
+                    </div>
+                    <div class="field">
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <div class="pass-link">
+                        <a href="#" onclick="forpass()">Forgot password?</a>
+                    </div>
+                    <div class="field btn">
+                        <div class="btn-layer"></div>
+                        <input type="submit" value="Login" onclick="log()">
+                    </div>
+                    <div class="Register-link">
+                        Not registered? <a href="#" onclick="reg()">Register now</a>
+                    </div>
+                </form>
+                <form action="#" class="Register">
+                    <div class="field">
+                        <input type="text" placeholder="Full name" required>
+                    </div>
+                    <div class="field">
+                        <input type="text" placeholder="Email / Username" required>
+                    </div>
+                    <div class="field">
+                        <input type="password" id="Password" placeholder="Password" required onkeyup='passConfirm();' />
+                    </div>
+                    <div class="field">
+                        <input type="password" placeholder="Confirm password" id="ConfirmPassword" required
+                            onkeyup='passConfirm();' />
+                    </div>
+                    <span id="Message"></span>
+                    <div class="field">
+                        <input type="text" placeholder="What is your Favorite color?" required>
+                    </div>
+                    <div class="field">
+                        <input type="number" placeholder="Phone number" required>
+                    </div>
+
+                    <div class="field btn">
+                        <div class="btn-layer"></div>
+                        <input type="submit" value="Register" onclick="reg()">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script>
+    var passConfirm = function () {
+        if (document.getElementById("Password").value ==
+            document.getElementById("ConfirmPassword").value) {
+            document.getElementById("Message").style.color = "Green";
+            document.getElementById("Message").innerHTML = "Passwords match!"
+        } else {
+            document.getElementById("Message").style.color = "Red";
+            document.getElementById("Message").innerHTML = "Passwords do NOT match!"
+        }
+    }
+    const loginText = document.querySelector(".title-text .login");
+    const loginForm = document.querySelector("form.login");
+    const loginBtn = document.querySelector("label.login");
+    const signupBtn = document.querySelector("label.signup");
+    const signupLink = document.querySelector("form .signup-link a");
+    signupBtn.onclick = (() => {
+        loginForm.style.marginLeft = "-50%";
+        loginText.style.marginLeft = "-50%";
+    });
+    loginBtn.onclick = (() => {
+        loginForm.style.marginLeft = "0%";
+        loginText.style.marginLeft = "0%";
+    });
+    signupLink.onclick = (() => {
+        signupBtn.click();
+        return false;
+    });
+    function reg() {
+        loginForm.style.marginLeft = "-50%";
+        loginText.style.marginLeft = "-50%";
+    }
+</script>
+
+</html>
